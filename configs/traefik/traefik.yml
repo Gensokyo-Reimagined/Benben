@@ -1,0 +1,31 @@
+providers:
+  docker:
+    exposedByDefault: false
+  file:
+    directory: conf.d
+
+certificatesResolvers:
+  letsencrypt:
+    acme:
+      dnsChallenge:
+        provider: googledomains
+      #email: "{{ cloudflare_email }}" <- may not be required
+      storage: "/acme_data/acme.json"
+
+entryPoints:
+  web:
+    address: ":80"
+    http:
+      redirections:
+        entryPoint:
+          to: websecure
+          scheme: https
+  websecure:
+    address: ":443"
+    http:
+      tls:
+        certResolver: letsencrypt
+        domains:
+          - main: "gensokyoreimagined.net"
+            sans:
+              - "*.gensokyoreimagined.net"
