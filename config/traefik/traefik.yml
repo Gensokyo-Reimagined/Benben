@@ -26,6 +26,6 @@ entryPoints:
       tls:
         certResolver: letsencrypt
         domains:
-          - main: "gensokyoreimagined.net"
+          - main: "internal.gensokyoreimagined.net"
             sans:
-              - "*.gensokyoreimagined.net"
+              - "*.internal.gensokyoreimagined.net"
