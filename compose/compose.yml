@@ -86,6 +86,7 @@ services:
       - /var/run/docker.sock:/var/run/docker.sock
     environment:
       WATCHTOWER_MONITOR_ONLY: "true"
+      WATCHTOWER_CLEANUP: "true"
 volumes:
   portainer_data:
   acme_data:
