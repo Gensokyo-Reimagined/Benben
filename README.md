@@ -1,6 +1,6 @@
 ## Benben
 <p>
-  Some of the docker <b>compose</b> files we use to manage our various containers running the server and its services.
+  Some of the docker <b>compose</b> files we use to support our various internal services used to manage the server.
 </p>
 
 ---
