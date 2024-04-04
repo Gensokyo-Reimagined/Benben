@@ -42,7 +42,7 @@ services:
       traefik.http.routers.frontend.rule: Host(`panel.${INTERNAL_DOMAIN_ROOT}`)
       traefik.http.routers.frontend.entrypoints: websecure
       traefik.http.routers.frontend.tls.certresolver: letsencrypt
-#     traefik.http.routers.frontend.middlewares: oauth@docker
+      # traefik.http.routers.frontend.middlewares: oauth@docker
       traefik.http.routers.frontend.service: frontend
     volumes:
       - portainer_data:/data
@@ -65,7 +65,7 @@ services:
       OAUTH2_PROXY_GITHUB_ORG: '${OAUTH2_PROXY_GITHUB_ORG}'
       OAUTH2_PROXY_GITHUB_TEAM: '${OAUTH2_PROXY_GITHUB_TEAM}'
       OAUTH2_PROXY_REDIRECT_URL: 'https://auth.${INTERNAL_DOMAIN_ROOT}/oauth2/callback'
-      OAUTH2_PROXY_SCOPE: "user:email"
+      OAUTH2_PROXY_SCOPE: "user:email read:org"
 
       OAUTH2_PROXY_COOKIE_CSRF_PER_REQUEST: "true"
       OAUTH2_PROXY_COOKIE_CSRF_EXPIRE: '5m'
