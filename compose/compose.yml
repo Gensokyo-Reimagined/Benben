@@ -16,7 +16,7 @@ services:
       - "443:443"
     volumes:
       - "/var/run/docker.sock:/var/run/docker.sock:ro"
-      - "acme_data:/acme_data/"
+      - "/acme_data:/acme_data"
       - "${DOCKER_COMPOSE_DIR}/config/traefik/traefik.yml:/traefik.yml"
       - "${DOCKER_COMPOSE_DIR}/config/traefik/conf.d:/conf.d"
 
