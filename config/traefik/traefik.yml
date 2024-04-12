@@ -9,7 +9,6 @@ certificatesResolvers:
     acme:
       dnsChallenge:
         provider: cloudflare
-      email: "{{ cloudflare_email }}"
       storage: "/acme_data/acme.json"
 
 entryPoints:
@@ -28,4 +27,4 @@ entryPoints:
         domains:
           - main: "internal.gensokyoreimagined.net"
             sans:
-              - "*.internal.gensokyoreimagined.net"
+              - "mail.gensokyoreimagined.net"
