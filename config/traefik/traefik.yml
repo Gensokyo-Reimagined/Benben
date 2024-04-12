@@ -8,8 +8,8 @@ certificatesResolvers:
   letsencrypt:
     acme:
       dnsChallenge:
-        provider: googledomains
-      #email: "{{ cloudflare_email }}" <- may not be required
+        provider: cloudflare
+      email: "{{ cloudflare_email }}"
       storage: "/acme_data/acme.json"
 
 entryPoints:
