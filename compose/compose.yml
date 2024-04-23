@@ -12,13 +12,27 @@ services:
       CLOUDFLARE_API_KEY: "${CLOUDFLARE_API_KEY}"
       # GOOGLE_DOMAINS_ACCESS_TOKEN: "${GOOGLE_DOMAINS_ACCESS_TOKEN}"
     ports:
-      - "80:80"
-      - "443:443"
+      - "5000:80"
+      - "5001:443"
     volumes:
       - "/var/run/docker.sock:/var/run/docker.sock:ro"
       - "/acme_data:/acme_data"
       - "${DOCKER_COMPOSE_DIR}/config/traefik/traefik.yml:/traefik.yml"
       - "${DOCKER_COMPOSE_DIR}/config/traefik/conf.d:/conf.d"
+
+  nginx:
+    image: nginxinc/nginx-unprivileged
+    networks:
+      - 'traefik'
+      - 'nginx'
+    user: '1000:1000'
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - ${NGINX_DIR}:/etc/nginx/
+      - ${LETSENCRYPT_DIR}:/etc/letsencrypt/
+    restart: unless-stopped
 
   agent:
     image: portainer/agent:2.20.1
@@ -93,3 +107,4 @@ volumes:
 
 networks:
   traefik:
+  nginx:
