@@ -48,7 +48,7 @@ services:
     restart: always
     networks:
       - traefik
-    command: -H tcp://agent:9001 --tlsskipverify
+    command: -H tcp://agent:9001 --tlsskipverify --trusted-origins panel.internal.gensokyoreimagined.net
     labels:
       # Frontend
       traefik.enable: true
