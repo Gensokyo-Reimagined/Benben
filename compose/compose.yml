@@ -99,6 +99,7 @@ services:
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
     environment:
+      DOCKER_API_VERSION: "1.44"
       WATCHTOWER_MONITOR_ONLY: "true"
       WATCHTOWER_CLEANUP: "true"
 volumes:
