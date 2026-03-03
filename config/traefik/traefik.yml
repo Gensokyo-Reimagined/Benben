@@ -4,6 +4,9 @@ providers:
   file:
     directory: conf.d
 
+# log:
+#   level: "DEBUG"
+
 certificatesResolvers:
   letsencrypt:
     acme:

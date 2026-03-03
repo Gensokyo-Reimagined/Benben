@@ -59,7 +59,8 @@ services:
       # traefik.http.routers.frontend.middlewares: oauth@docker
       traefik.http.routers.frontend.service: frontend
     volumes:
-      - portainer_data:/data
+      # - portainer_data:/data
+      - "/opt/docker/data/portainer:/data"
   oauth2proxy:
     image: quay.io/oauth2-proxy/oauth2-proxy:latest
     container_name: oauth2proxy
